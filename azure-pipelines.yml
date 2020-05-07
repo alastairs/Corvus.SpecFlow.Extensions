@@ -27,3 +27,11 @@ jobs:
           verbose: false
           customCommand: 'install -g azure-functions-core-tools@3 --unsafe-perm true'
     netSdkVersion: '3.x'
+- job:
+  steps:
+  - task: NuGetCommand@2
+    inputs:
+      command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+      nuGetFeedType: 'internal'
+      publishVstsFeed: 'e7dd1e5b-a73f-4cc9-8003-6c5c97b3f40b'
