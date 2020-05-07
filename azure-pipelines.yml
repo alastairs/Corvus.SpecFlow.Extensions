@@ -27,7 +27,9 @@ jobs:
           verbose: false
           customCommand: 'install -g azure-functions-core-tools@3 --unsafe-perm true'
     netSdkVersion: '3.x'
-- job:
+
+- job: "Publish to internal NuGet"
+  dependsOn: Build
   steps:
   - task: NuGetCommand@2
     inputs:
