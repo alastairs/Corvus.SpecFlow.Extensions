@@ -12,14 +12,12 @@ resources:
     - repository: recommended_practices
       type: github
       name: endjin/Endjin.RecommendedPractices.AzureDevopsPipelines.GitHub
-      endpoint: corvus-dotnet-github
+      endpoint: alastairs
 
 jobs:
 - template: templates/build.and.release.yml@recommended_practices
   parameters:
     vmImage: 'windows-latest'
-    service_connection_nuget_org: $(Endjin_Service_Connection_NuGet_Org)
-    service_connection_github: $(Endjin_Service_Connection_GitHub)
     solution_to_build: $(Endjin_Solution_To_Build)
     postCustomEnvironmentVariables:
       - task: Npm@1
