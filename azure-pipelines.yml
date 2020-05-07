@@ -18,7 +18,7 @@ jobs:
 - template: templates/build.and.release.yml@recommended_practices
   parameters:
     vmImage: 'windows-latest'
-    solution_to_build: $(Endjin_Solution_To_Build)
+    solution_to_build: Solutions/Corvus.Testing.sln
     postCustomEnvironmentVariables:
       - task: Npm@1
         displayName: 'Install Latest Azure Functions V3 Runtime'
